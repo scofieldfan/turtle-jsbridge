@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+        js调用java
+    </title>
+    <style>
+        .content{
+            height:300px;
+            width:100%;
+            background:red;
+        }
+        .btn{
+            color:#fff;
+            background:#ccc;
+            height:50px;
+            line-height:50px;
+            margin:5px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="btn" id="btn1">callAndroid</div>
+        <div class="content" id="content">
+            content;
+        </div>
+
+<script>
+
+
+    document.getElementById("btn1").addEventListener('click',()=>{
+        /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+        document.location = "js://webview?arg1=111&arg2=222";
+    });
+
+</script>
+</body>
+</html>

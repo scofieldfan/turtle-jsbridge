@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MyApp</string>
+    <string name="webview_name">webviewq</string>
+    <string name="method1">LoadUrl</string>
+    <string name="method2">evaluateJavascript</string>
+    <string name="method3">安卓注入一个对象 addJavascriptInterface</string>
+    <string name="method4">安卓拦截Schema shouldOverrideUrlLoading </string>
+    <string name="method5">安卓拦截Prompt</string>
+    <string name="title_activity_load_js">LoadJs</string>
+    <string name="title_activity_evaluate">Evaluate</string>
+    <string name="title_activity_js_interface">JsInterfaceActivity</string>
+    <string name="title_activity_overide_url">OverideUrlActivity</string>
+    <string name="title_activity_prompt">PromptActivity</string>
+</resources>

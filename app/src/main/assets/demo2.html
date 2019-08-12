@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>
+        js调用java
+    </title>
+    <style>
+        .title{
+            text-align:center;
+            background:red;
+        }
+        .content{
+            height:300px;
+            background:red;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="title">webview div....</div>
+        <button type="button" id="button1" >button1</button>
+        <button type="button" id="button4" >button4 URL Schema</button>
+
+
+         <div class="content" id="content">
+    </div>
+<script>
+
+    function callAndroid(){
+        if(window.test){
+         test.hello("js调用了android中的hello方法");
+        }else{
+            console.log('error,test not exists.');
+        }
+    }
+
+    let btn1 = document.getElementById("button1");
+    btn1.addEventListener('click',()=>{
+        callAndroid();
+    });
+    function callJS(){
+        alert("callJS...");
+       let content = document.getElementById("content");
+
+       content.innerHTML += " call Js";
+       return "hello,my world!!!!!!";
+    }
+
+    document.getElementById("button4").addEventListener('click',()=>{
+        /*约定的url协议为：js://webview?arg1=111&arg2=222*/
+        document.location = "js://webview?arg1=111&arg2=222";
+    });
+
+</script>
+</body>
+</html>
