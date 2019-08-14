@@ -1,10 +1,14 @@
 ## Hybrid 方案原理 安卓 WebView 和 h5 的交互原理（JSBridge 原理）
 
 列举了 JSBridge 的几种内部实现逻辑。可以编译工程看代码
+实际运行效果如下
+![blockchain](./imgs/index.png)
+![blockchain](./imgs/prompt.png)
+![blockchain](./imgs/android_log.png)
 
 ## 安卓调用 JS
 
-- WebView 的 loadUrl
+### WebView 的 loadUrl
 
 ```
     mWebView.loadUrl("javascript:callJS()");
@@ -12,8 +16,9 @@
 
 这个方法无法拿到返回值，webview 会刷新。
 
-- WebView 的 evaluateJavascript
-  这个方法可以拿到返回值
+### WebView 的 evaluateJavascript
+
+这个方法可以拿到返回值
 
 ```
 mWebView.evaluateJavascript("javascript:callJS()", new ValueCallback<String>() {
@@ -28,9 +33,10 @@ mWebView.evaluateJavascript("javascript:callJS()", new ValueCallback<String>() {
 
 ## JS 调用 Android
 
-- 通过 WebView 的 addJavascriptInterface（）进行对象映射
-  在 java 中有一个对象映射到 webview 里，webview 可以拿到这个 js 对象。注册在 window 上
-  在 java 端的代码
+### 通过 WebView 的 addJavascriptInterface（）进行对象映射
+
+在 java 中有一个对象映射到 webview 里，webview 可以拿到这个 js 对象。注册在 window 上
+在 java 端的代码
 
 ```
 mWebView.addJavascriptInterface(new AndroidtoJs(), "test");
@@ -53,8 +59,9 @@ mWebView.addJavascriptInterface(new AndroidtoJs(), "test");
     });
 ```
 
-- 通过 WebViewClient 的 shouldOverrideUrlLoading ()方法回调拦截 url
-  webview 中的 JS 发起 schema 请求，然后安卓端拦截到这个请求。
+### 通过 WebViewClient 的 shouldOverrideUrlLoading ()方法回调拦截 url
+
+webview 中的 JS 发起 schema 请求，然后安卓端拦截到这个请求。
 
 ```
 document.getElementById("btn1").addEventListener('click',()=>{
@@ -82,8 +89,9 @@ mWebView.setWebViewClient(new WebViewClient() {
         });
 ```
 
-- 通过 WebChromeClient 的 onJsAlert()、onJsConfirm()、onJsPrompt（）方法回调拦截 JS 对话框 alert()、confirm()、prompt（） 消息
-  webview 中调用函数 prompt，然后安卓端拦截
+### 通过 WebChromeClient 的 onJsAlert()、onJsConfirm()、onJsPrompt（）方法回调拦截 JS 对话框 alert()、confirm()、prompt（） 消息
+
+webview 中调用函数 prompt，然后安卓端拦截
 
 ```
 function callAndroid(){
@@ -123,4 +131,4 @@ function callAndroid(){
 ```
 
 参考资料
-![https://github.com/wendux/DSBridge-Android/blob/master/readme-chs.md](https://github.com/wendux/DSBridge-Android/blob/master/readme-chs.md)
+(https://github.com/wendux/DSBridge-Android/blob/master/readme-chs.md)
