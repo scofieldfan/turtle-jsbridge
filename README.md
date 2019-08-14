@@ -4,11 +4,11 @@
 实际运行效果如下
 
 - 这是首页的运行效果
-  <div align=center><img width="150"  src="./imgs/index.png"/></div>
+  <div align=center><img width="250"  src="./imgs/index.png"/></div>
 - 这是 prompt 的运行效果
-  <div align=center><img width="150"  src="./imgs/prompt.png"/></div>
+  <div align=center><img width="250"  src="./imgs/prompt.png"/></div>
 - 这是 Android 端收到的日志
-  <div align=center><img width="500"  src="./imgs/android_log.png"/></div>
+  <div align=center><img width="700"  src="./imgs/android_log.png"/></div>
 
 ## 安卓调用 JS
 
