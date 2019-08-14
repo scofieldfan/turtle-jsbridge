@@ -10,7 +10,7 @@
     <Button
         android:id="@+id/buttonload1"
         android:layout_width="match_parent"
-        android:text="调用LoadJS"
+        android:text="evaluteJs"
         android:layout_height="48dp"
         />
 
